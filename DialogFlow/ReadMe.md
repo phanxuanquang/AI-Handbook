@@ -5,11 +5,8 @@ Dialogflow is a platform that enables us to create chatbots without the need for
 ## 1. Set up project:
 
 #### 1.1. Install Node.js and npm (skip if you had already):
-- Download and install Node.js on the [**official site**](https://nodejs.org/en/download/package-manager).
-- Install npm:
-```
-npm install -g npm
-```
+- [**Node.js**](https://nodejs.org/en/download/package-manager)
+- [**npm**](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 #### 1.2. Install Dialogflow API client for Node.js and Express.js:
 ```
