@@ -14,7 +14,7 @@ npm install @google-cloud/dialogflow express
 ```
 #### 1.3. Create GCP service account and export it as a .JSON file:
 - Detailed guidance can be found [HERE](https://cloud.google.com/iam/docs/service-accounts-create).
-#### 1.4. Replace the content of [*service-account.json*](https://github.com/phanxuanquang/AI-Handbook/blob/main/DialogFlow/service-account.json) with the content of your service account .JSON file.
+#### 1.4. Parse the content of your service account .JSON file into [*service-account.json*](https://github.com/phanxuanquang/AI-Handbook/blob/main/DialogFlow/service-account.json) file.
 ## 2. Usage Guidance:
 #### 2.1. Start Node.js server:
 ```
