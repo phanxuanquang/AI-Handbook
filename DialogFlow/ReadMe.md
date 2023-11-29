@@ -10,15 +10,10 @@ Note: This integration guidance is used only for **version 2 beta 1** of DialogF
 - [**Node.js**](https://nodejs.org/en/download/package-manager)
 - [**npm**](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-#### 1.2. Install Dialogflow API client for Node.js and Express.js:
-```
-npm install @google-cloud/dialogflow express
-```
-
-#### 1.3. Create GCP service account and export it as a .JSON file:
+#### 1.2. Create GCP service account and export it as a .JSON file:
 - Detailed guidance can be found [HERE](https://cloud.google.com/iam/docs/service-accounts-create).
 
-#### 1.4. Paste the content of your service account .JSON file into [*service-account.json*](https://github.com/phanxuanquang/AI-Handbook/blob/main/DialogFlow/service-account.json) file.
+#### 1.3. Paste the content of your service account .JSON file into [*service-account.json*](https://github.com/phanxuanquang/AI-Handbook/blob/main/DialogFlow/service-account.json) file.
 
 ## 2. Usage Guidance:
 
