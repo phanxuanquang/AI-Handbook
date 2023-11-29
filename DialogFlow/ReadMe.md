@@ -2,6 +2,8 @@
 # DialogFlow Intergration Guidance
 ![image](https://i.imgur.com/OLCbWGS.png)
 Dialogflow is a platform that enables us to create chatbots without the need for installation, technical infrastructure, or even coding knowledge. It is a natural language understanding platform that makes it easy to design and integrate a conversational user interface into mobile apps, web applications, devices, bots, interactive voice response systems, and so on. With Dialogflow, we can create new and engaging ways for users to interact with our product. Besides, Dialogflow can be integrated into many different platforms directly without extra coding. It is also easy to use and has a good natural language processing (NLP) system. 
+
+Note: This integration guidance is used only for **version 2 beta 1** of DialogFlow API (latest version until 2023).
 ## 1. Set up project:
 
 #### 1.1. Install Node.js and npm (skip if you had already):
