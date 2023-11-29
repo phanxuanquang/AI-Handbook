@@ -1,29 +1,32 @@
 # Intergration Guidance
 
-A brief of step-by-step command lines to setup DialogFlow API using Node.js and Express.js
-## 1. Set up project:
+## 1.Set up project:
 
-#### 1. Create Node.js modules:
+#### 1.1. Install Node.js and npm (skip if you had already):
+- Download and install Node.js on the [**official site**](https://nodejs.org/en/download/package-manager).
+- Install npm:
 ```
-npm init
+npm install -g npm
 ```
-#### 2. Install Dialogflow API client for Node.js and Express.js:
+#### 1.2. Install Dialogflow API client for Node.js and Express.js:
 ```
 npm install @google-cloud/dialogflow express
 ```
-## 2. Usage:
-#### 1. Start Node.js server:
+#### 1.3. Create GCP service account and export it as a .JSON file:
+- Detailed guidance can be found [HERE](https://cloud.google.com/iam/docs/service-accounts-create).
+#### 1.4. Replace the content of [*service-account.json*](https://github.com/phanxuanquang/AI-Handbook/blob/main/DialogFlow/service-account.json) with the content of your service account .JSON file.
+## 2. Usage Guidance:
+#### 2.1. Start Node.js server:
 ```
 node DialogFlow.js
 ```
-#### 2. Usage of the API:
-Request endpoint (POST Method):
+#### 2.2. API Usage:
 ```
-http://localhost:5000/dialogflow
+POST http://localhost:5000/dialogflow
 ```
-Request body:
+With request body (example):
 ```
 {
-    "queryText":"Hello!"
+    "queryText" : "Hello!"
 }
 ```
