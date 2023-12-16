@@ -21,14 +21,10 @@ python Copilot.py
 
 #### 2.2. API Usage:
 ```
-GET http://localhost:5000/copilot
+GET http://localhost:5000/ask?question=YOUR_QUESTION
 ```
-With request body (example):
-```
-{
-    "question" : "Hello!"
-}
-```
+With *YOUR_QUESTION* is your question.
+
 
 ## 3. Documentaion:
 - Can be found [**HERE**](https://github.com/vsakkas/sydney.py).
