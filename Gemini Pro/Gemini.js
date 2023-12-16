@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.post("/ask", async (req, res) => {
+app.post("/gemini", async (req, res) => {
   const { question } = req.body;
 
   if (!question) {
