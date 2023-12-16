@@ -14,6 +14,8 @@ npm install @google/generative-ai express
 ```
 
 ## 2. Usage Guidance:
+#### 2.1. Get the API key:
+Get the APY key [**HERE**](https://makersuite.google.com/app/apikey), then replace *YOUR_API_KEY* with you key.
 
 #### 2.1. Start Node.js server:
 ```
