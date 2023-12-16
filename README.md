@@ -1,7 +1,7 @@
 
 # AI Handbook
 ![image](https://i.imgur.com/bEXUI5o.png)
-This repository contains the AI models that has been used for my projects so far, with the purpose is to help the others can apply the AI models to their products right away without deeply researching.
+This repository contains the AI models (to create chatbots for now) that has been used for my projects so far, with the purpose is to help the others can apply the AI models to their products right away without deeply researching.
 
 ## 1. AI model list *(updated on 16.12.2023)*:
 - Microsoft Copilot *(former Bing Chat)*
