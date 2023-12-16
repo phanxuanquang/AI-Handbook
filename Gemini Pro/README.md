@@ -17,12 +17,12 @@ npm install @google/generative-ai express
 #### 2.1. Get the API key:
 Get the APY key [**HERE**](https://makersuite.google.com/app/apikey), then replace *YOUR_API_KEY* with you key.
 
-#### 2.1. Start Node.js server:
+#### 2.2. Start Node.js server:
 ```
 node Gemini.js
 ```
 
-#### 2.2. API Usage:
+#### 2.3. API Usage:
 ```
 POST http://localhost:5000/gemini
 ```
