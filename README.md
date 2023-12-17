@@ -1,5 +1,3 @@
-
-# AI Handbook
 ![image](https://i.imgur.com/aQYdqzj.png)
 This repository contains the APIs to create AI-based chatbots that has been used for my projects so far, with the purpose is to help the others can apply the AI models to their products right away without deeply researching.
 
