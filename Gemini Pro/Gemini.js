@@ -33,7 +33,7 @@ app.post('/gemini', async (req, res) => {
     const response = await result.response;
     const text = response.text();
 
-    res.json({ response: text });
+    res.json({ answer: text });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
