@@ -20,7 +20,7 @@ const createChatLi = (message, className) => {
 const generateResponse = (chatElement) => {
   const messageElement = chatElement.querySelector("p");
 
-  const API_URL = "http://localhost:5000/ask"; // replace "gemini" with other model name
+  const API_URL = "http://localhost:5000/gemini"; // replace "gemini" with other model name
   const requestOptions = {
     method: "POST",
     headers: {
