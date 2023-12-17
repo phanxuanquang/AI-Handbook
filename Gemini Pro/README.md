@@ -22,6 +22,9 @@ Get the APY key [**HERE**](https://makersuite.google.com/app/apikey), then repla
 node Gemini.js
 ```
 
+#### Prompt (Optional):
+Input the prompt to tell the chatbot about the context or the role to take in order to improve the accuracy of the response.
+
 #### 2.3. API Usage:
 ```
 POST http://localhost:5000/gemini

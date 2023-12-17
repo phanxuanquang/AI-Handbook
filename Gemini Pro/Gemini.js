@@ -1,27 +1,45 @@
-const express = require("express");
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+const express = require('express');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const genAI = new GoogleGenerativeAI("YOUR_API_KEY");
 const app = express();
-
 app.use(express.json());
 
-app.post("/gemini", async (req, res) => {
-  const { question } = req.body;
+const genAI = new GoogleGenerativeAI(atob('QUl6YVN5RFR4dkpFZEhNRzVhOGI5ejhTQ3V1czRqZ25MOTFfeWk0'));
+const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
 
-  if (!question) {
-    return res.status(400).json({ error: "Question not found." });
-  }
+const prompt = "Hello!"; // Replace with your prompt if any. This prompt is to tell the bot about the context or the role it must take
 
+app.post('/gemini', async (req, res) => {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-    const result = await model.generateContent(question);
-    res.json({ answer: result.response.text() });
+    const { question } = req.body;
+
+    const chat = model.startChat({
+      history: [
+        {
+          role: 'user',
+          parts: prompt,
+        },
+        {
+          role: 'model',
+          parts: 'Hello, how can I help you?', 
+        },
+      ],
+      generationConfig: {
+        maxOutputTokens: 100,
+      },
+    });
+
+    const result = await chat.sendMessage(question);
+    const response = await result.response;
+    const text = response.text();
+
+    res.json({ response: text });
   } catch (error) {
-    res.status(500).json({ error: "An error occurred while generating content." });
+    res.status(500).json({ error: error.message });
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
