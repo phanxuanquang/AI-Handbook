@@ -5,6 +5,18 @@ const sendChatBtn = document.querySelector(".chat-input span");
 let userMessage = null;
 const inputInitHeight = chatInput.scrollHeight;
 
+function removeMarkdownFrom(text) {
+  text = text.replace(/\*\*(.*?)\*\*/g, '$1');
+  text = text.replace(/\*(.*?)\*/g, '$1');
+  text = text.replace(/`(.*?)`/g, '$1');
+  text = text.replace(/^#+\s*(.*)/gm, '$1');
+  text = text.replace(/^\s*-\s*(.*)/gm, '$1');
+  text = text.replace(/^\s*\d+\.\s*(.*)/gm, '$1');
+  text = text.replace(/^\s*>\s*(.*)/gm, '$1');
+
+  return text;
+}
+
 const createChatLi = (message, className) => {
   const chatLi = document.createElement("li");
   chatLi.classList.add("chat", `${className}`);
@@ -13,7 +25,7 @@ const createChatLi = (message, className) => {
       ? `<p></p>`
       : `<span class="material-symbols-outlined">android</span><p></p>`;
   chatLi.innerHTML = chatContent;
-  chatLi.querySelector("p").textContent = message;
+  chatLi.querySelector("p").textContent = removeMarkdownFrom(message);
   return chatLi;
 };
 
