@@ -4,6 +4,7 @@ This repository contains the APIs to create AI-based chatbots that has been used
 ## 1. AI model list *(updated on 16.12.2023)*:
 - Microsoft Copilot *(former Bing Chat)*
 - Gemini Pro
+- Gemini Pro Vision
 - DialogFlow ES
 
 ## 2. API Testing Guidance:
