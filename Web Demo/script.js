@@ -6,13 +6,15 @@ let userMessage = null;
 const inputInitHeight = chatInput.scrollHeight;
 
 function removeMarkdownFrom(text) {
-  text = text.replace(/\*\*(.*?)\*\*/g, '$1');
-  text = text.replace(/\*(.*?)\*/g, '$1');
-  text = text.replace(/`(.*?)`/g, '$1');
-  text = text.replace(/^#+\s*(.*)/gm, '$1');
-  text = text.replace(/^\s*-\s*(.*)/gm, '$1');
-  text = text.replace(/^\s*\d+\.\s*(.*)/gm, '$1');
-  text = text.replace(/^\s*>\s*(.*)/gm, '$1');
+  text = text.replace(/\*\*(.*?)\*\*/g, "$1");
+  text = text.replace(/\*(.*?)\*/g, "$1");
+  text = text.replace(/`(.*?)`/g, "$1");
+  text = text.replace(/^#+\s*(.*)/gm, "$1");
+  text = text.replace(/^\s*-\s*(.*)/gm, "$1");
+  text = text.replace(/^\s*\d+\.\s*(.*)/gm, "$1");
+  text = text.replace(/^\s*>\s*(.*)/gm, "$1");
+  text = text.replace("json", "");
+  text = text.replaceAll("```", "");
 
   return text;
 }
@@ -38,8 +40,8 @@ const generateResponse = (chatElement) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ 
-        question: userMessage 
+    body: JSON.stringify({
+      question: userMessage,
     }),
   };
 

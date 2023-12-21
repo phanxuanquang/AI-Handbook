@@ -4,12 +4,12 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const app = express();
 app.use(express.json());
 
-const genAI = new GoogleGenerativeAI(atob('QUl6YVN5RFR4dkpFZEhNRzVhOGI5ejhTQ3V1czRqZ25MOTFfeWk0'));
+const genAI = new GoogleGenerativeAI("YOUR_API_KEY");
 const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
 
 const prompt = "Hello!"; // Replace with your prompt if any. This prompt is to tell the bot about the context or the role it must take
 
-app.post('/gemini', async (req, res) => {
+app.post('/gemini-pro', async (req, res) => {
   try {
     const { question } = req.body;
 
