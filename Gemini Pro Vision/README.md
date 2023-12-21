@@ -13,7 +13,7 @@ Gemini Pro is a powerful large language model (LLM) from Google AI, designed for
 #### 1.2. Install required packages:
 
 ```
-npm install @google/generative-ai express
+npm install @google/generative-ai express body-parser node-fetch
 ```
 
 ## 2. Usage Guidance:
