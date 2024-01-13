@@ -3,7 +3,7 @@
     "role": "user",
     "parts": [
       {
-        "text": "Your initiative question."
+        "text": "Hello!"
       }
     ]
   },
@@ -11,7 +11,7 @@
     "role": "model",
     "parts": [
       {
-        "text": "Chatbot's response for your question."
+        "text": "Hello, how are you?"
       }
     ]
   }
