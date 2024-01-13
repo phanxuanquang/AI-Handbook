@@ -1,36 +1,61 @@
-const express = require('express');
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+const express = require("express");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
 app.use(express.json());
 
 const genAI = new GoogleGenerativeAI("YOUR_API_KEY");
-const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+const context = loadContextFrom("context.json");
+const loadContextFrom = (jsonPath) => {
+  try {
+    const historyData = fs.readFileSync(jsonPath, "utf8");
+    const history = JSON.parse(historyData);
+    return history;
+  } catch (error) {
+    console.error("Error reading context file: ", error);
+    return [];
+  }
+};
 
-const prompt = "Hello!"; // Replace with your prompt if any. This prompt is to tell the bot about the context or the role it must take
-
-app.post('/gemini-pro', async (req, res) => {
+app.post("/gemini-pro", async (req, res) => {
   try {
     const { question } = req.body;
+    
+    const generationConfig = {
+      temperature: 0.9,
+      topK: 1,
+      topP: 1,
+      maxOutputTokens: 2048,
+    };
+
+    const safetySettings = [
+      {
+        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+      },
+    ];
 
     const chat = model.startChat({
-      history: [
-        {
-          role: 'user',
-          parts: prompt,
-        },
-        {
-          role: 'model',
-          parts: 'Hello, how can I help you?', 
-        },
-      ],
-      generationConfig: {
-        maxOutputTokens: 150,
-      },
+      generationConfig,
+      safetySettings,
+      history: context,
     });
 
     const result = await chat.sendMessage(question);
-    const response = await result.response;
+    const response = result.response;
     const text = response.text();
 
     res.json({ answer: text });

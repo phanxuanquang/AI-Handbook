@@ -1,0 +1,18 @@
+[
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Your initiative question."
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Chatbot's response for your question."
+      }
+    ]
+  }
+]
