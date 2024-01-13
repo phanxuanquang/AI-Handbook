@@ -1,12 +1,16 @@
 const express = require("express");
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+const fs = require("fs");
+const {
+  GoogleGenerativeAI,
+  HarmCategory,
+  HarmBlockThreshold,
+} = require("@google/generative-ai");
 
 const app = express();
 app.use(express.json());
 
 const genAI = new GoogleGenerativeAI("YOUR_API_KEY");
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-const context = loadContextFrom("context.json");
 const loadContextFrom = (jsonPath) => {
   try {
     const historyData = fs.readFileSync(jsonPath, "utf8");
@@ -18,10 +22,11 @@ const loadContextFrom = (jsonPath) => {
   }
 };
 
+const context = loadContextFrom("context.json");
 app.post("/gemini-pro", async (req, res) => {
   try {
     const { question } = req.body;
-    
+
     const generationConfig = {
       temperature: 0.9,
       topK: 1,
