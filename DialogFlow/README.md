@@ -31,7 +31,7 @@ node DialogFlow.js
 POST http://localhost:5000/dialogflow
 ```
 With request body (example):
-```
+```json
 {
     "question" : "Hello!"
 }
