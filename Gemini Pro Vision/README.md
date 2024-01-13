@@ -40,7 +40,7 @@ POST http://localhost:5000/gemini-pro-vision
 
 With request body (example):
 
-```
+```json
 {
     "question" : "Hello!",
     "imageUrl" : "https://i.imgur.com/aQYdqzj.jpg"
