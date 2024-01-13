@@ -28,9 +28,31 @@ Get the APY key [**HERE**](https://makersuite.google.com/app/apikey), then repla
 node Gemini.js
 ```
 
-#### Prompt (Optional):
+#### 2.3 Input Context (Optional):
 
-Input the prompt to tell the chatbot about the context or the role to take in order to improve the accuracy of the response.
+Input the prompt to tell the chatbot about the context to improve the accuracy of the response from the chatbot.
+
+The context must be an array of question-answer pairs as below example:
+```json
+[
+  {
+    "role": "user",
+    "parts": [
+      {
+        "text": "Your question."
+      }
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      {
+        "text": "Chatbot's response for your question."
+      }
+    ]
+  }
+]
+```
 
 #### 2.3. API Usage:
 
@@ -40,7 +62,7 @@ POST http://localhost:5000/gemini-pro
 
 With request body (example):
 
-```
+```json
 {
     "question" : "Hello!"
 }
