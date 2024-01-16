@@ -21,8 +21,20 @@ const loadContextFrom = (jsonPath) => {
     return [];
   }
 };
+function UpdateConversation(role, text, JsonArray) {
+  const newElement = {
+    role: role,
+    parts: [
+      {
+        text: text,
+      },
+    ],
+  };
+  JsonArray.push(newElement);
+  return JsonArray;
+}
 
-const context = loadContextFrom("context.json");
+let context = loadContextFrom("context.json");
 app.post("/gemini-pro", async (req, res) => {
   try {
     const { question } = req.body;
@@ -62,7 +74,8 @@ app.post("/gemini-pro", async (req, res) => {
     const result = await chat.sendMessage(question);
     const response = result.response;
     const text = response.text();
-
+    context = UpdateConversation("user", text, chatLog);
+    context = UpdateConversation("model", response.text(), chatLog);
     res.json({ answer: text });
   } catch (error) {
     res.status(500).json({ error: error.message });
