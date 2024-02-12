@@ -2,12 +2,14 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  align-items: center;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .chat-container {
@@ -28,12 +30,21 @@ body {
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
+  
 }
 
 .chat-body {
   overflow-y: auto;
   max-height: 45rem;
   padding: 1rem;
+}
+
+.user-message p {
+  margin: 0px;
+}
+
+.chatbot-message p {
+  margin: 0px;
 }
 
 .user-message,
@@ -48,6 +59,10 @@ body {
   text-align: left;
 }
 
+.card-body{
+  min-height: 80vh;
+}
+
 .user-message {
   border-radius: 1.2rem 0.2rem 1.2rem 1.2rem;
   margin-left: auto;
@@ -56,6 +71,7 @@ body {
 .chatbot-message {
   margin-right: auto;
   border-radius: 1.1rem 1.2rem 1.2rem 0.2rem;
+  background: linear-gradient(60deg, rgba(246,83,255,1) 0%, rgba(98,91,255,1) 52%, rgba(0,212,255,1) 100%);
 }
 
 .input-group {
@@ -91,6 +107,10 @@ body {
 
   .input-group {
     padding: 1rem;
+  }
+
+  .card-body{
+    min-height: 85vh;
   }
 }
 
