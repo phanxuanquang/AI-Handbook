@@ -1,6 +1,4 @@
 async function sendRequest(userInput) {
-  const API_KEY = "YOUR_API_KEY";
-
   try {
     const response = await fetch("https://lapteller-be.onrender.com/ask", {
       method: "POST",
@@ -26,6 +24,10 @@ async function sendRequest(userInput) {
 
 function sendMessage() {
   const userInput = document.getElementById("user-input").value;
+  if (userInput.trim() === "") {
+    return;
+  }
+
   appendMessage("User", userInput, true);
 
   sendRequest(userInput);
