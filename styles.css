@@ -1,0 +1,159 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 3rem;
+}
+
+.chat-container {
+  max-width: 50rem;
+  margin: 1rem auto;
+}
+
+.chat-card {
+  border: none;
+  border-radius: 1rem;
+}
+
+.chat-header {
+  background-color: #007bff;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 0.6rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.chat-body {
+  overflow-y: auto;
+  max-height: 45rem;
+  padding: 1rem;
+}
+
+.user-message,
+.chatbot-message {
+  word-wrap: break-word;
+  color: aliceblue;
+  background-color: #007bff;
+  max-width: 70%;
+  width: fit-content;
+  margin-bottom: 1rem;
+  padding: 0.4rem 1.2rem;
+  text-align: left;
+}
+
+.user-message {
+  border-radius: 1.2rem 0.2rem 1.2rem 1.2rem;
+  margin-left: auto;
+}
+
+.chatbot-message {
+  margin-right: auto;
+  border-radius: 1.1rem 1.2rem 1.2rem 0.2rem;
+}
+
+.input-group {
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+  margin: 0 auto;
+  width: 60rem;
+  max-width: 95%;
+}
+@media (max-width: 576px) {
+  body {
+    background-color: transparent;
+  }
+
+  .input-group {
+    background-color: transparent;
+  }
+
+  .container {
+    margin-top: 0;
+  }
+
+  .chat-header {
+    position: sticky;
+    padding: 0;
+  }
+
+  .user-message,
+  .chatbot-message {
+    font-size: small;
+  }
+
+  .input-group {
+    padding: 1rem;
+  }
+}
+
+/* Add custom styles for animations */
+
+/* Entrance animations */
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Typing animations */
+@keyframes typeIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: max-content;
+  }
+}
+
+/* Message sending/receiving animations */
+@keyframes bubbleAppear {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply the entrance animations to the chat window and chatbot avatar */
+.card {
+  animation: slideInFromBottom 0.5s ease-out;
+}
+
+/* Apply typing animation to user input */
+#user-input {
+  animation: typeIn 0.5s forwards;
+}
+
+/* Apply typing animation to chatbot responses */
+.chatbot-message {
+  animation: typeIn 0.5s forwards;
+}
+
+/* Apply message sending/receiving animation to message bubbles */
+.user-message,
+.chatbot-message {
+  animation: bubbleAppear 0.5s ease-out;
+}

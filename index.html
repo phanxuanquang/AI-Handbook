@@ -1,53 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Gemini Pro</title>
-    <link rel="icon" type="image/x-icon" href="icon.ico" />
-    <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Your Chatbot</title>
+
+    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       rel="stylesheet"
     />
+    <!-- MDB -->
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
       rel="stylesheet"
     />
-    <script src="script.js" defer></script>
-  </head>
 
-  <body>
-    <div class="chatbot my-5">
-      <header class="sticky-top bg-light text-primary">
-        <h2>Gemini Pro</h2>
-      </header>
-      <ul class="chatbox">
-        <li class="chat incoming">
-          <span class="material-symbols-outlined">android</span>
-          <p>Hello, how can I help you?</p>
-        </li>
-      </ul>
-      <div class="chat-input">
-        <textarea
-          placeholder="Enter your question..."
-          spellcheck="false"
-          required
-        ></textarea>
-        <span id="send-btn" class="material-symbols-rounded">send</span>
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Your Custom JavaScript -->
+    <script src="script.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+  </head>
+  <body class="d-flex flex-column" style="min-height: 100vh;">
+    <div class="container p-0 flex-grow-1">
+      <div class="card">
+        <div class="card-header bg-primary text-center text-light">
+          AI HANDBOOK
+        </div>
+        <div class="card-body chat-body" id="chat-container">
+          <!-- Chat messages will go here -->
+        </div>
       </div>
+    </div>
+
+    <div class="input-group p-4 pt-2 bg-white rounded">
+      <button
+        type="btn"
+        class="btn btn-secondary rounded-pill px-3"
+        data-mdb-ripple-init
+      >
+        <i class="fa-solid fa-image"></i>
+      </button>
+      <input
+        type="text"
+        class="form-control mx-2 rounded-pill px-3"
+        placeholder="Aa"
+        id="user-input"
+        onkeydown="handleKeyPress(event)"
+      />
+      <button
+        type="btn"
+        onclick="sendMessage()"
+        class="btn btn-primary rounded-pill"
+        data-mdb-ripple-init
+      >
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+      </button>
     </div>
   </body>
 </html>

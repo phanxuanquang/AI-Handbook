@@ -11,6 +11,7 @@ app.use(express.json());
 
 const genAI = new GoogleGenerativeAI("YOUR_API_KEY");
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
 const loadContextFrom = (jsonPath) => {
   try {
     const historyData = fs.readFileSync(jsonPath, "utf8");
@@ -33,8 +34,8 @@ function UpdateConversation(role, text, JsonArray) {
   JsonArray.push(newElement);
   return JsonArray;
 }
-
 let context = loadContextFrom("context.json");
+
 app.post("/gemini-pro", async (req, res) => {
   try {
     const { question } = req.body;
