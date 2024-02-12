@@ -2,7 +2,7 @@ async function sendRequest(userInput) {
   const API_KEY = "YOUR_API_KEY";
 
   try {
-    const response = await fetch("http://localhost:5000/ask", {
+    const response = await fetch("https://lapteller-be.onrender.com/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
