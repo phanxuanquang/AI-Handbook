@@ -1,6 +1,6 @@
 async function sendRequest(userInput) {
   try {
-    const response = await fetch("https://lapteller-be.onrender.com/ask", {
+    const response = await fetch("localhost:3000/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
